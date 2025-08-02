@@ -1,0 +1,153 @@
+/* Reset and global styles */
+* {
+  font-family: 'Poppins', sans-serif; /* Typo fixed: "font-familly" to "font-family" */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Button section styling */
+.buttons {
+  margin: 50px;
+}
+
+.buttons button {
+  background: #000;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  color: #fff;
+  height: 50px;
+  width: 120px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.buttons button:hover {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
+
+/* Toast box container */
+.toastBox {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px;
+}
+
+/* Toast base style */
+.toast {
+  position: relative;
+  width: 400px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  font-weight: 500;
+  margin: 15px 0;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transform: translateX(100%);
+  animation: moveleft 0.5s linear forwards;
+}
+
+/* Slide-in animation */
+@keyframes moveleft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Shared animation for progress bars */
+@keyframes anim {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+/* === TOAST TYPES === */
+
+/* ✅ Success toast */
+.toast.success {
+  background-color: #fff;
+  color: #000;
+}
+
+.toast.success::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: green;
+  border-radius: 20px;
+  animation: anim 3s linear forwards;
+}
+
+.toast.success i {
+  color: green;
+}
+
+/* ❌ Error toast */
+.toast.error {
+  color: red;
+}
+
+.toast.error::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: red;
+  border-radius: 20px;
+  animation: anim 3s linear forwards;
+}
+
+.toast.error i {
+  color: red;
+}
+
+/* ⚠️ Invalid toast */
+.toast.invalid {
+  background-color: orange;
+  color: #000;
+}
+
+.toast.invalid::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: black;
+  border-radius: 20px;
+  animation: anim 3s linear forwards;
+}
+
+.toast.invalid i {
+  color: #000;
+}
+
+/* Icon inside toasts */
+.toast i {
+  font-size: 35px;
+  margin: 0 20px;
+}
+
